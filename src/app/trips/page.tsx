@@ -4,7 +4,7 @@ import ViewToggle from "@/components/trips/ViewToggle";
 import TripMap from "@/components/trips/TripMap";
 import Button from "@/components/ui/Button";
 import { prisma } from "@/lib/prisma";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "../../generated/client_v2";
 
 export const dynamic = "force-dynamic";
 
