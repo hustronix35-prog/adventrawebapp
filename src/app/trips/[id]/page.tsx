@@ -4,12 +4,7 @@ import { Calendar, Users, MapPin, Star, CheckCircle2 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import TripGallery from "@/components/trips/TripGallery";
-import TripOverview from "@/components/trips/TripOverview";
-import PlacesOfInterest from "@/components/trips/PlacesOfInterest";
-import TripTabs from "@/components/trips/TripTabs";
-import RouteTab from "@/components/trips/RouteTab";
-import ItineraryTab from "@/components/trips/ItineraryTab";
-import RequirementsTab from "@/components/trips/RequirementsTab";
+import TripClient from "./TripClient";
 import Image from "next/image";
 
 export default async function TripDetailPage(props: { params: Promise<{ id: string }> }) {
@@ -59,34 +54,14 @@ export default async function TripDetailPage(props: { params: Promise<{ id: stri
                 <div className="flex flex-col lg:flex-row gap-12">
                     {/* Main Content */}
                     <div className="lg:w-2/3 space-y-12">
-                        <TripTabs
-                            overview={
-                                <TripOverview
-                                    description={trip.description}
-                                    highlights={highlights}
-                                    inclusions={inclusions}
-                                    exclusions={exclusions}
-                                    bestTime={trip.bestTime}
-                                    tripType={trip.tripType}
-                                    summitHeight={trip.summitHeight}
-                                    region={trip.region}
-                                />
-                            }
-                            route={
-                                <RouteTab
-                                    route={JSON.parse(trip.route ?? "[]")}
-                                    routeImage={trip.routeImage}
-                                />
-                            }
-                            itinerary={
-                                <ItineraryTab itinerary={itinerary} />
-                            }
-                            requirements={
-                                <RequirementsTab requirements={trip.requirements ?? ""} />
-                            }
-                            placesOfInterest={
-                                <PlacesOfInterest places={placesOfInterest} />
-                            }
+                        <TripClient
+                            trip={trip}
+                            highlights={highlights}
+                            itinerary={itinerary}
+                            inclusions={inclusions}
+                            exclusions={exclusions}
+                            placesOfInterest={placesOfInterest}
+                            requirements={trip.requirements}
                         />
                     </div>
 
