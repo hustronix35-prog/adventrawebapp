@@ -38,7 +38,7 @@
   ],
   "exclude": [
     "node_modules",
-    "check-users.ts",
-    "prisma"
+    "prisma",
+    "*.ts"
   ]
 }
