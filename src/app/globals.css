@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #F58A1F;
+  --color-secondary: #3D3EC9;
+  --color-accent: #2B2F9F;
+  --color-highlight: #7B7FEA;
+  --color-background: #F4F6FB;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #515151;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+:root {
+  /* Gradients */
+  --gradient-brand: linear-gradient(to right, #7B7FEA, #3D3EC9, #2B2F9F);
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--color-background)] text-[var(--color-text-primary)] font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[var(--color-primary)] text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-[var(--color-secondary)] border border-[var(--color-secondary)] px-6 py-3 rounded-full font-semibold hover:bg-gray-50 transition-all;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden;
+  }
+
+  .glass-panel {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-[image:var(--gradient-brand)];
+  }
+}
