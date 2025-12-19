@@ -40,6 +40,9 @@
   "exclude": [
     "node_modules",
     "prisma",
-    "*.ts"
+    "check-users.ts",
+    "list_communities.ts",
+    "reset-password.ts",
+    "verify-db.ts"
   ]
 }
