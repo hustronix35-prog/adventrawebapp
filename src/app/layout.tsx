@@ -16,6 +16,9 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 export const metadata: Metadata = {
   title: "Adventra | Discover Your Next Adventure",
   description: "Premium adventure travel booking platform for curated trekking and outdoor experiences.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
