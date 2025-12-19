@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '../src/generated/client_v2'
 
 const prisma = new PrismaClient()
 
@@ -11,7 +11,7 @@ const TRIPS = [
         duration: "14 Days",
         durationDays: 14,
         rating: 4.9,
-        reviews: 124,
+        reviewCount: 124,
         price: 1499,
         difficulty: "Challenging",
         highlights: JSON.stringify(["Scenic flight to Lukla", "Namche Bazaar", "Tengboche Monastery", "Kala Patthar Viewpoint", "Khumbu Glacier"]),
@@ -60,7 +60,7 @@ const TRIPS = [
         duration: "4 Days",
         durationDays: 4,
         rating: 4.8,
-        reviews: 89,
+        reviewCount: 89,
         price: 899,
         difficulty: "Moderate",
         highlights: JSON.stringify(["Cusco City", "Sacred Valley", "Machu Picchu Sunrise", "Winay Wayna Ruins"]),
@@ -98,7 +98,7 @@ const TRIPS = [
         duration: "11 Days",
         durationDays: 11,
         rating: 5.0,
-        reviews: 56,
+        reviewCount: 56,
         price: 1899,
         difficulty: "Challenging",
         highlights: JSON.stringify(["Alpine Meadows", "Glacial Valleys", "Three Countries", "Chamonix"]),
@@ -134,7 +134,7 @@ const TRIPS = [
         duration: "7 Days",
         durationDays: 7,
         rating: 4.7,
-        reviews: 210,
+        reviewCount: 210,
         price: 2200,
         difficulty: "Difficult",
         highlights: JSON.stringify(["Uhuru Peak", "Barranco Wall", "Shira Plateau", "Sunrise from Summit"]),
@@ -170,7 +170,7 @@ const TRIPS = [
         duration: "5 Days",
         durationDays: 5,
         rating: 4.9,
-        reviews: 78,
+        reviewCount: 78,
         price: 1200,
         difficulty: "Moderate",
         highlights: JSON.stringify(["Grey Glacier", "French Valley", "The Towers", "Nordenskjöld Lake"]),
@@ -206,7 +206,7 @@ const TRIPS = [
         duration: "18 Days",
         durationDays: 18,
         rating: 4.8,
-        reviews: 150,
+        reviewCount: 150,
         price: 1100,
         difficulty: "Challenging",
         highlights: JSON.stringify(["Thorong La Pass", "Muktinath", "Manang", "Apple Pie Trail"]),

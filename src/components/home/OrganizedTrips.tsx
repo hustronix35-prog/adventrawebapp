@@ -22,7 +22,7 @@ export default async function OrganizedTrips() {
     return (
         <section className="py-16 bg-white">
             <div className="container mx-auto px-4">
-                <div className="flex justify-between items-end mb-10">
+                <div className="flex justify-between items-end mb-10" data-aos="fade-up">
                     <div>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Organized Trips</h2>
                         <p className="text-gray-500">Handpicked adventures for every traveler</p>
@@ -32,7 +32,11 @@ export default async function OrganizedTrips() {
                     </Link>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                >
                     {trips.length > 0 ? (
                         trips.map((trip) => (
                             <TripCard

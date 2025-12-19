@@ -21,7 +21,7 @@ export default async function PopularTrips() {
     return (
         <section className="py-20 bg-gray-50">
             <div className="container mx-auto px-4">
-                <div className="flex items-end justify-between mb-12">
+                <div className="flex items-end justify-between mb-12" data-aos="fade-up">
                     <div>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                             Popular Adventures
@@ -37,7 +37,11 @@ export default async function PopularTrips() {
                     </Link>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                >
                     {trips.length > 0 ? (
                         trips.map((trip) => (
                             <TripCard

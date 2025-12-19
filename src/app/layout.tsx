@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import NextAuthSessionProvider from "@/components/providers/SessionProvider";
+import AOSProvider from "@/components/providers/AOSProvider";
 
 import BottomNav from "@/components/layout/BottomNav";
 
@@ -26,11 +27,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning={true}>
         <NextAuthSessionProvider>
-          <Navbar />
-          <main className="min-h-screen pb-16 md:pb-0">{children}</main>
-          <Footer />
-          <BottomNav />
-          <Toaster position="top-center" />
+          <AOSProvider>
+            <Navbar />
+            <main className="min-h-screen pb-16 md:pb-0">{children}</main>
+            <Footer />
+            <BottomNav />
+            <Toaster position="top-center" />
+          </AOSProvider>
         </NextAuthSessionProvider>
       </body>
     </html>

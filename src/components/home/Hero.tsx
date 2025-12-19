@@ -36,15 +36,27 @@ export default function Hero() {
 
             {/* Content */}
             <div className="container mx-auto px-4 relative z-10 text-center">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight animate-in fade-in slide-in-from-bottom-5 duration-700">
+                <h1
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight"
+                    data-aos="fade-up"
+                    data-aos-delay="0"
+                >
                     Discover Your Next <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Adventure</span>
                 </h1>
-                <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-5 duration-700 delay-100">
+                <p
+                    className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                >
                     Curated trekking and outdoor experiences for those who seek the extraordinary.
                 </p>
 
                 {/* Search Bar */}
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-full max-w-4xl mx-auto shadow-2xl animate-in fade-in slide-in-from-bottom-5 duration-700 delay-200 hidden md:flex items-center">
+                <div
+                    className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-full max-w-4xl mx-auto shadow-2xl hidden md:flex items-center"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                >
                     <div className="flex-1 flex items-center px-6 border-r border-white/20">
                         <MapPin className="w-5 h-5 text-gray-300 mr-3" />
                         <input
@@ -82,7 +94,11 @@ export default function Hero() {
                 </div>
 
                 {/* Mobile Search Button */}
-                <div className="md:hidden animate-in fade-in slide-in-from-bottom-5 duration-700 delay-200">
+                <div
+                    className="md:hidden"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                >
                     <Link href="/trips">
                         <Button size="lg" className="w-full max-w-xs rounded-full shadow-xl">
                             <Search className="w-5 h-5 mr-2" />

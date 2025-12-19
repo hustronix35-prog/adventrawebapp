@@ -781,6 +781,10 @@ export namespace Prisma {
             args: Prisma.UserCreateArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
+          createMany: {
+            args: Prisma.UserCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
           delete: {
             args: Prisma.UserDeleteArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$UserPayload>
@@ -842,6 +846,10 @@ export namespace Prisma {
           create: {
             args: Prisma.TripCreateArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$TripPayload>
+          }
+          createMany: {
+            args: Prisma.TripCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
           }
           delete: {
             args: Prisma.TripDeleteArgs<ExtArgs>,
@@ -905,6 +913,10 @@ export namespace Prisma {
             args: Prisma.BookingCreateArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$BookingPayload>
           }
+          createMany: {
+            args: Prisma.BookingCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
           delete: {
             args: Prisma.BookingDeleteArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$BookingPayload>
@@ -966,6 +978,10 @@ export namespace Prisma {
           create: {
             args: Prisma.CircleCreateArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$CirclePayload>
+          }
+          createMany: {
+            args: Prisma.CircleCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
           }
           delete: {
             args: Prisma.CircleDeleteArgs<ExtArgs>,
@@ -1029,6 +1045,10 @@ export namespace Prisma {
             args: Prisma.CircleMemberCreateArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$CircleMemberPayload>
           }
+          createMany: {
+            args: Prisma.CircleMemberCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
           delete: {
             args: Prisma.CircleMemberDeleteArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$CircleMemberPayload>
@@ -1090,6 +1110,10 @@ export namespace Prisma {
           create: {
             args: Prisma.OrganizerCreateArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$OrganizerPayload>
+          }
+          createMany: {
+            args: Prisma.OrganizerCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
           }
           delete: {
             args: Prisma.OrganizerDeleteArgs<ExtArgs>,
@@ -1153,6 +1177,10 @@ export namespace Prisma {
             args: Prisma.MessageCreateArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$MessagePayload>
           }
+          createMany: {
+            args: Prisma.MessageCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
           delete: {
             args: Prisma.MessageDeleteArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$MessagePayload>
@@ -1214,6 +1242,10 @@ export namespace Prisma {
           create: {
             args: Prisma.ReviewCreateArgs<ExtArgs>,
             result: $Utils.PayloadToResult<Prisma.$ReviewPayload>
+          }
+          createMany: {
+            args: Prisma.ReviewCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
           }
           delete: {
             args: Prisma.ReviewDeleteArgs<ExtArgs>,
@@ -2011,6 +2043,22 @@ export namespace Prisma {
     ): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
+     * Create many Users.
+     *     @param {UserCreateManyArgs} args - Arguments to create many Users.
+     *     @example
+     *     // Create many Users
+     *     const user = await prisma.user.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends UserCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
      * Delete a User.
      * @param {UserDeleteArgs} args - Arguments to delete one User.
      * @example
@@ -2495,6 +2543,18 @@ export namespace Prisma {
      * The data needed to create a User.
      */
     data: XOR<UserCreateInput, UserUncheckedCreateInput>
+  }
+
+
+  /**
+   * User createMany
+   */
+  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Users.
+     */
+    data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
 
@@ -3550,6 +3610,22 @@ export namespace Prisma {
     ): Prisma__TripClient<$Result.GetResult<Prisma.$TripPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
+     * Create many Trips.
+     *     @param {TripCreateManyArgs} args - Arguments to create many Trips.
+     *     @example
+     *     // Create many Trips
+     *     const trip = await prisma.trip.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends TripCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, TripCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
      * Delete a Trip.
      * @param {TripDeleteArgs} args - Arguments to delete one Trip.
      * @example
@@ -4067,6 +4143,18 @@ export namespace Prisma {
      * The data needed to create a Trip.
      */
     data: XOR<TripCreateInput, TripUncheckedCreateInput>
+  }
+
+
+  /**
+   * Trip createMany
+   */
+  export type TripCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Trips.
+     */
+    data: TripCreateManyInput | TripCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
 
@@ -4675,6 +4763,22 @@ export namespace Prisma {
     ): Prisma__BookingClient<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
+     * Create many Bookings.
+     *     @param {BookingCreateManyArgs} args - Arguments to create many Bookings.
+     *     @example
+     *     // Create many Bookings
+     *     const booking = await prisma.booking.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends BookingCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BookingCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
      * Delete a Booking.
      * @param {BookingDeleteArgs} args - Arguments to delete one Booking.
      * @example
@@ -5154,6 +5258,18 @@ export namespace Prisma {
 
 
   /**
+   * Booking createMany
+   */
+  export type BookingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Bookings.
+     */
+    data: BookingCreateManyInput | BookingCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
    * Booking update
    */
   export type BookingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5601,6 +5717,22 @@ export namespace Prisma {
     create<T extends CircleCreateArgs<ExtArgs>>(
       args: SelectSubset<T, CircleCreateArgs<ExtArgs>>
     ): Prisma__CircleClient<$Result.GetResult<Prisma.$CirclePayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Circles.
+     *     @param {CircleCreateManyArgs} args - Arguments to create many Circles.
+     *     @example
+     *     // Create many Circles
+     *     const circle = await prisma.circle.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends CircleCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CircleCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Delete a Circle.
@@ -6083,6 +6215,18 @@ export namespace Prisma {
 
 
   /**
+   * Circle createMany
+   */
+  export type CircleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Circles.
+     */
+    data: CircleCreateManyInput | CircleCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
    * Circle update
    */
   export type CircleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6555,6 +6699,22 @@ export namespace Prisma {
     create<T extends CircleMemberCreateArgs<ExtArgs>>(
       args: SelectSubset<T, CircleMemberCreateArgs<ExtArgs>>
     ): Prisma__CircleMemberClient<$Result.GetResult<Prisma.$CircleMemberPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many CircleMembers.
+     *     @param {CircleMemberCreateManyArgs} args - Arguments to create many CircleMembers.
+     *     @example
+     *     // Create many CircleMembers
+     *     const circleMember = await prisma.circleMember.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends CircleMemberCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CircleMemberCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Delete a CircleMember.
@@ -7030,6 +7190,18 @@ export namespace Prisma {
 
 
   /**
+   * CircleMember createMany
+   */
+  export type CircleMemberCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CircleMembers.
+     */
+    data: CircleMemberCreateManyInput | CircleMemberCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
    * CircleMember update
    */
   export type CircleMemberUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7488,6 +7660,22 @@ export namespace Prisma {
     create<T extends OrganizerCreateArgs<ExtArgs>>(
       args: SelectSubset<T, OrganizerCreateArgs<ExtArgs>>
     ): Prisma__OrganizerClient<$Result.GetResult<Prisma.$OrganizerPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Organizers.
+     *     @param {OrganizerCreateManyArgs} args - Arguments to create many Organizers.
+     *     @example
+     *     // Create many Organizers
+     *     const organizer = await prisma.organizer.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends OrganizerCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, OrganizerCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Delete a Organizer.
@@ -7962,6 +8150,18 @@ export namespace Prisma {
      * The data needed to create a Organizer.
      */
     data: XOR<OrganizerCreateInput, OrganizerUncheckedCreateInput>
+  }
+
+
+  /**
+   * Organizer createMany
+   */
+  export type OrganizerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Organizers.
+     */
+    data: OrganizerCreateManyInput | OrganizerCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
 
@@ -8467,6 +8667,22 @@ export namespace Prisma {
     ): Prisma__MessageClient<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
+     * Create many Messages.
+     *     @param {MessageCreateManyArgs} args - Arguments to create many Messages.
+     *     @example
+     *     // Create many Messages
+     *     const message = await prisma.message.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends MessageCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, MessageCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
      * Delete a Message.
      * @param {MessageDeleteArgs} args - Arguments to delete one Message.
      * @example
@@ -8948,6 +9164,18 @@ export namespace Prisma {
      * The data needed to create a Message.
      */
     data: XOR<MessageCreateInput, MessageUncheckedCreateInput>
+  }
+
+
+  /**
+   * Message createMany
+   */
+  export type MessageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Messages.
+     */
+    data: MessageCreateManyInput | MessageCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
 
@@ -9507,6 +9735,22 @@ export namespace Prisma {
     ): Prisma__ReviewClient<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
+     * Create many Reviews.
+     *     @param {ReviewCreateManyArgs} args - Arguments to create many Reviews.
+     *     @example
+     *     // Create many Reviews
+     *     const review = await prisma.review.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends ReviewCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ReviewCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
      * Delete a Review.
      * @param {ReviewDeleteArgs} args - Arguments to delete one Review.
      * @example
@@ -9983,6 +10227,18 @@ export namespace Prisma {
 
 
   /**
+   * Review createMany
+   */
+  export type ReviewCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Reviews.
+     */
+    data: ReviewCreateManyInput | ReviewCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
    * Review update
    */
   export type ReviewUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10114,6 +10370,9 @@ export namespace Prisma {
    */
 
   export const TransactionIsolationLevel: {
+    ReadUncommitted: 'ReadUncommitted',
+    ReadCommitted: 'ReadCommitted',
+    RepeatableRead: 'RepeatableRead',
     Serializable: 'Serializable'
   };
 
@@ -10278,6 +10537,14 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
   export const NullsOrder: {
     first: 'first',
     last: 'last'
@@ -10299,9 +10566,23 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'String[]'
+   */
+  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
 
 
@@ -10313,9 +10594,23 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 
@@ -11222,6 +11517,18 @@ export namespace Prisma {
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
   }
 
+  export type UserCreateManyInput = {
+    id?: string
+    name?: string | null
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    phone?: string | null
+    location?: string | null
+  }
+
   export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11454,6 +11761,55 @@ export namespace Prisma {
     reviews?: ReviewUncheckedUpdateManyWithoutTripNestedInput
   }
 
+  export type TripCreateManyInput = {
+    id?: string
+    title: string
+    description: string
+    image?: string | null
+    gallery?: string | null
+    location: string
+    duration?: string | null
+    durationDays?: number
+    rating?: number
+    reviewCount?: number
+    price?: number
+    difficulty?: string
+    highlights?: string | null
+    itinerary?: string | null
+    inclusions?: string | null
+    exclusions?: string | null
+    bestTime?: string | null
+    tripType?: string | null
+    summitHeight?: string | null
+    region?: string | null
+    placesOfInterest?: string | null
+    routeImage?: string | null
+    route?: string | null
+    requirements?: string | null
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    isPrivate?: boolean
+    isTest?: boolean
+    activities?: string | null
+    capacity?: number | null
+    startingLocation?: string | null
+    returnLocation?: string | null
+    accommodation?: string | null
+    platformFee?: number | null
+    discountAmount?: number | null
+    tourGuideDetails?: string | null
+    tourGuidePhoto?: string | null
+    cancellationPolicy?: string | null
+    termsAndConditions?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    status?: string
+    deletedAt?: Date | string | null
+    creatorId?: string | null
+    circleId?: string | null
+  }
+
   export type TripUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
@@ -11602,6 +11958,19 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type BookingCreateManyInput = {
+    id?: string
+    userId: string
+    tripId: string
+    date: Date | string
+    guests: number
+    totalPrice: number
+    status?: string
+    paymentStatus?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type BookingUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11678,6 +12047,16 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutCircleNestedInput
   }
 
+  export type CircleCreateManyInput = {
+    id?: string
+    name: string
+    description: string
+    image?: string | null
+    ownerId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type CircleUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -11723,6 +12102,13 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     circleId?: StringFieldUpdateOperationsInput | string
     joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CircleMemberCreateManyInput = {
+    id?: string
+    userId: string
+    circleId: string
+    joinedAt?: Date | string
   }
 
   export type CircleMemberUpdateManyMutationInput = {
@@ -11787,6 +12173,18 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     messages?: MessageUncheckedUpdateManyWithoutOrganizerNestedInput
+  }
+
+  export type OrganizerCreateManyInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    image?: string | null
+    bio?: string | null
+    phone?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type OrganizerUpdateManyMutationInput = {
@@ -11865,6 +12263,19 @@ export namespace Prisma {
     recipientId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type MessageCreateManyInput = {
+    id?: string
+    content: string
+    createdAt?: Date | string
+    isRead?: boolean
+    sender: string
+    tripId?: string | null
+    circleId?: string | null
+    organizerId?: string | null
+    userId?: string | null
+    recipientId?: string | null
+  }
+
   export type MessageUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
@@ -11926,6 +12337,16 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type ReviewCreateManyInput = {
+    id?: string
+    rating: number
+    content: string
+    userId: string
+    tripId?: string | null
+    isFeatured?: boolean
+    createdAt?: Date | string
+  }
+
   export type ReviewUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     rating?: IntFieldUpdateOperationsInput | number
@@ -11946,8 +12367,8 @@ export namespace Prisma {
 
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -11955,13 +12376,14 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -11969,13 +12391,14 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -12086,8 +12509,8 @@ export namespace Prisma {
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -12095,6 +12518,7 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
     not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
@@ -12103,8 +12527,8 @@ export namespace Prisma {
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -12112,6 +12536,7 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
     not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
@@ -12120,8 +12545,8 @@ export namespace Prisma {
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -12134,8 +12559,8 @@ export namespace Prisma {
 
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -12145,8 +12570,8 @@ export namespace Prisma {
 
   export type FloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -12156,8 +12581,8 @@ export namespace Prisma {
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -12172,8 +12597,8 @@ export namespace Prisma {
 
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -12183,8 +12608,8 @@ export namespace Prisma {
 
   export type FloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -12373,8 +12798,8 @@ export namespace Prisma {
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -12389,8 +12814,8 @@ export namespace Prisma {
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -12405,8 +12830,8 @@ export namespace Prisma {
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -12427,8 +12852,8 @@ export namespace Prisma {
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -12443,8 +12868,8 @@ export namespace Prisma {
 
   export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -12703,84 +13128,98 @@ export namespace Prisma {
   export type BookingCreateNestedManyWithoutUserInput = {
     create?: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput> | BookingCreateWithoutUserInput[] | BookingUncheckedCreateWithoutUserInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutUserInput | BookingCreateOrConnectWithoutUserInput[]
+    createMany?: BookingCreateManyUserInputEnvelope
     connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
   }
 
   export type TripCreateNestedManyWithoutCreatorInput = {
     create?: XOR<TripCreateWithoutCreatorInput, TripUncheckedCreateWithoutCreatorInput> | TripCreateWithoutCreatorInput[] | TripUncheckedCreateWithoutCreatorInput[]
     connectOrCreate?: TripCreateOrConnectWithoutCreatorInput | TripCreateOrConnectWithoutCreatorInput[]
+    createMany?: TripCreateManyCreatorInputEnvelope
     connect?: TripWhereUniqueInput | TripWhereUniqueInput[]
   }
 
   export type CircleMemberCreateNestedManyWithoutUserInput = {
     create?: XOR<CircleMemberCreateWithoutUserInput, CircleMemberUncheckedCreateWithoutUserInput> | CircleMemberCreateWithoutUserInput[] | CircleMemberUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CircleMemberCreateOrConnectWithoutUserInput | CircleMemberCreateOrConnectWithoutUserInput[]
+    createMany?: CircleMemberCreateManyUserInputEnvelope
     connect?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
   }
 
   export type CircleCreateNestedManyWithoutOwnerInput = {
     create?: XOR<CircleCreateWithoutOwnerInput, CircleUncheckedCreateWithoutOwnerInput> | CircleCreateWithoutOwnerInput[] | CircleUncheckedCreateWithoutOwnerInput[]
     connectOrCreate?: CircleCreateOrConnectWithoutOwnerInput | CircleCreateOrConnectWithoutOwnerInput[]
+    createMany?: CircleCreateManyOwnerInputEnvelope
     connect?: CircleWhereUniqueInput | CircleWhereUniqueInput[]
   }
 
   export type MessageCreateNestedManyWithoutUserInput = {
     create?: XOR<MessageCreateWithoutUserInput, MessageUncheckedCreateWithoutUserInput> | MessageCreateWithoutUserInput[] | MessageUncheckedCreateWithoutUserInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutUserInput | MessageCreateOrConnectWithoutUserInput[]
+    createMany?: MessageCreateManyUserInputEnvelope
     connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
   }
 
   export type MessageCreateNestedManyWithoutRecipientInput = {
     create?: XOR<MessageCreateWithoutRecipientInput, MessageUncheckedCreateWithoutRecipientInput> | MessageCreateWithoutRecipientInput[] | MessageUncheckedCreateWithoutRecipientInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutRecipientInput | MessageCreateOrConnectWithoutRecipientInput[]
+    createMany?: MessageCreateManyRecipientInputEnvelope
     connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
   }
 
   export type ReviewCreateNestedManyWithoutUserInput = {
     create?: XOR<ReviewCreateWithoutUserInput, ReviewUncheckedCreateWithoutUserInput> | ReviewCreateWithoutUserInput[] | ReviewUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ReviewCreateOrConnectWithoutUserInput | ReviewCreateOrConnectWithoutUserInput[]
+    createMany?: ReviewCreateManyUserInputEnvelope
     connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
   }
 
   export type BookingUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput> | BookingCreateWithoutUserInput[] | BookingUncheckedCreateWithoutUserInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutUserInput | BookingCreateOrConnectWithoutUserInput[]
+    createMany?: BookingCreateManyUserInputEnvelope
     connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
   }
 
   export type TripUncheckedCreateNestedManyWithoutCreatorInput = {
     create?: XOR<TripCreateWithoutCreatorInput, TripUncheckedCreateWithoutCreatorInput> | TripCreateWithoutCreatorInput[] | TripUncheckedCreateWithoutCreatorInput[]
     connectOrCreate?: TripCreateOrConnectWithoutCreatorInput | TripCreateOrConnectWithoutCreatorInput[]
+    createMany?: TripCreateManyCreatorInputEnvelope
     connect?: TripWhereUniqueInput | TripWhereUniqueInput[]
   }
 
   export type CircleMemberUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<CircleMemberCreateWithoutUserInput, CircleMemberUncheckedCreateWithoutUserInput> | CircleMemberCreateWithoutUserInput[] | CircleMemberUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CircleMemberCreateOrConnectWithoutUserInput | CircleMemberCreateOrConnectWithoutUserInput[]
+    createMany?: CircleMemberCreateManyUserInputEnvelope
     connect?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
   }
 
   export type CircleUncheckedCreateNestedManyWithoutOwnerInput = {
     create?: XOR<CircleCreateWithoutOwnerInput, CircleUncheckedCreateWithoutOwnerInput> | CircleCreateWithoutOwnerInput[] | CircleUncheckedCreateWithoutOwnerInput[]
     connectOrCreate?: CircleCreateOrConnectWithoutOwnerInput | CircleCreateOrConnectWithoutOwnerInput[]
+    createMany?: CircleCreateManyOwnerInputEnvelope
     connect?: CircleWhereUniqueInput | CircleWhereUniqueInput[]
   }
 
   export type MessageUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<MessageCreateWithoutUserInput, MessageUncheckedCreateWithoutUserInput> | MessageCreateWithoutUserInput[] | MessageUncheckedCreateWithoutUserInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutUserInput | MessageCreateOrConnectWithoutUserInput[]
+    createMany?: MessageCreateManyUserInputEnvelope
     connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
   }
 
   export type MessageUncheckedCreateNestedManyWithoutRecipientInput = {
     create?: XOR<MessageCreateWithoutRecipientInput, MessageUncheckedCreateWithoutRecipientInput> | MessageCreateWithoutRecipientInput[] | MessageUncheckedCreateWithoutRecipientInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutRecipientInput | MessageCreateOrConnectWithoutRecipientInput[]
+    createMany?: MessageCreateManyRecipientInputEnvelope
     connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
   }
 
   export type ReviewUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<ReviewCreateWithoutUserInput, ReviewUncheckedCreateWithoutUserInput> | ReviewCreateWithoutUserInput[] | ReviewUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ReviewCreateOrConnectWithoutUserInput | ReviewCreateOrConnectWithoutUserInput[]
+    createMany?: ReviewCreateManyUserInputEnvelope
     connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
   }
 
@@ -12800,6 +13239,7 @@ export namespace Prisma {
     create?: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput> | BookingCreateWithoutUserInput[] | BookingUncheckedCreateWithoutUserInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutUserInput | BookingCreateOrConnectWithoutUserInput[]
     upsert?: BookingUpsertWithWhereUniqueWithoutUserInput | BookingUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: BookingCreateManyUserInputEnvelope
     set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
     disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
     delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
@@ -12813,6 +13253,7 @@ export namespace Prisma {
     create?: XOR<TripCreateWithoutCreatorInput, TripUncheckedCreateWithoutCreatorInput> | TripCreateWithoutCreatorInput[] | TripUncheckedCreateWithoutCreatorInput[]
     connectOrCreate?: TripCreateOrConnectWithoutCreatorInput | TripCreateOrConnectWithoutCreatorInput[]
     upsert?: TripUpsertWithWhereUniqueWithoutCreatorInput | TripUpsertWithWhereUniqueWithoutCreatorInput[]
+    createMany?: TripCreateManyCreatorInputEnvelope
     set?: TripWhereUniqueInput | TripWhereUniqueInput[]
     disconnect?: TripWhereUniqueInput | TripWhereUniqueInput[]
     delete?: TripWhereUniqueInput | TripWhereUniqueInput[]
@@ -12826,6 +13267,7 @@ export namespace Prisma {
     create?: XOR<CircleMemberCreateWithoutUserInput, CircleMemberUncheckedCreateWithoutUserInput> | CircleMemberCreateWithoutUserInput[] | CircleMemberUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CircleMemberCreateOrConnectWithoutUserInput | CircleMemberCreateOrConnectWithoutUserInput[]
     upsert?: CircleMemberUpsertWithWhereUniqueWithoutUserInput | CircleMemberUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CircleMemberCreateManyUserInputEnvelope
     set?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
     disconnect?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
     delete?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
@@ -12839,6 +13281,7 @@ export namespace Prisma {
     create?: XOR<CircleCreateWithoutOwnerInput, CircleUncheckedCreateWithoutOwnerInput> | CircleCreateWithoutOwnerInput[] | CircleUncheckedCreateWithoutOwnerInput[]
     connectOrCreate?: CircleCreateOrConnectWithoutOwnerInput | CircleCreateOrConnectWithoutOwnerInput[]
     upsert?: CircleUpsertWithWhereUniqueWithoutOwnerInput | CircleUpsertWithWhereUniqueWithoutOwnerInput[]
+    createMany?: CircleCreateManyOwnerInputEnvelope
     set?: CircleWhereUniqueInput | CircleWhereUniqueInput[]
     disconnect?: CircleWhereUniqueInput | CircleWhereUniqueInput[]
     delete?: CircleWhereUniqueInput | CircleWhereUniqueInput[]
@@ -12852,6 +13295,7 @@ export namespace Prisma {
     create?: XOR<MessageCreateWithoutUserInput, MessageUncheckedCreateWithoutUserInput> | MessageCreateWithoutUserInput[] | MessageUncheckedCreateWithoutUserInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutUserInput | MessageCreateOrConnectWithoutUserInput[]
     upsert?: MessageUpsertWithWhereUniqueWithoutUserInput | MessageUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: MessageCreateManyUserInputEnvelope
     set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
@@ -12865,6 +13309,7 @@ export namespace Prisma {
     create?: XOR<MessageCreateWithoutRecipientInput, MessageUncheckedCreateWithoutRecipientInput> | MessageCreateWithoutRecipientInput[] | MessageUncheckedCreateWithoutRecipientInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutRecipientInput | MessageCreateOrConnectWithoutRecipientInput[]
     upsert?: MessageUpsertWithWhereUniqueWithoutRecipientInput | MessageUpsertWithWhereUniqueWithoutRecipientInput[]
+    createMany?: MessageCreateManyRecipientInputEnvelope
     set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
@@ -12878,6 +13323,7 @@ export namespace Prisma {
     create?: XOR<ReviewCreateWithoutUserInput, ReviewUncheckedCreateWithoutUserInput> | ReviewCreateWithoutUserInput[] | ReviewUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ReviewCreateOrConnectWithoutUserInput | ReviewCreateOrConnectWithoutUserInput[]
     upsert?: ReviewUpsertWithWhereUniqueWithoutUserInput | ReviewUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ReviewCreateManyUserInputEnvelope
     set?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
     disconnect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
     delete?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
@@ -12891,6 +13337,7 @@ export namespace Prisma {
     create?: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput> | BookingCreateWithoutUserInput[] | BookingUncheckedCreateWithoutUserInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutUserInput | BookingCreateOrConnectWithoutUserInput[]
     upsert?: BookingUpsertWithWhereUniqueWithoutUserInput | BookingUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: BookingCreateManyUserInputEnvelope
     set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
     disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
     delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
@@ -12904,6 +13351,7 @@ export namespace Prisma {
     create?: XOR<TripCreateWithoutCreatorInput, TripUncheckedCreateWithoutCreatorInput> | TripCreateWithoutCreatorInput[] | TripUncheckedCreateWithoutCreatorInput[]
     connectOrCreate?: TripCreateOrConnectWithoutCreatorInput | TripCreateOrConnectWithoutCreatorInput[]
     upsert?: TripUpsertWithWhereUniqueWithoutCreatorInput | TripUpsertWithWhereUniqueWithoutCreatorInput[]
+    createMany?: TripCreateManyCreatorInputEnvelope
     set?: TripWhereUniqueInput | TripWhereUniqueInput[]
     disconnect?: TripWhereUniqueInput | TripWhereUniqueInput[]
     delete?: TripWhereUniqueInput | TripWhereUniqueInput[]
@@ -12917,6 +13365,7 @@ export namespace Prisma {
     create?: XOR<CircleMemberCreateWithoutUserInput, CircleMemberUncheckedCreateWithoutUserInput> | CircleMemberCreateWithoutUserInput[] | CircleMemberUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CircleMemberCreateOrConnectWithoutUserInput | CircleMemberCreateOrConnectWithoutUserInput[]
     upsert?: CircleMemberUpsertWithWhereUniqueWithoutUserInput | CircleMemberUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CircleMemberCreateManyUserInputEnvelope
     set?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
     disconnect?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
     delete?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
@@ -12930,6 +13379,7 @@ export namespace Prisma {
     create?: XOR<CircleCreateWithoutOwnerInput, CircleUncheckedCreateWithoutOwnerInput> | CircleCreateWithoutOwnerInput[] | CircleUncheckedCreateWithoutOwnerInput[]
     connectOrCreate?: CircleCreateOrConnectWithoutOwnerInput | CircleCreateOrConnectWithoutOwnerInput[]
     upsert?: CircleUpsertWithWhereUniqueWithoutOwnerInput | CircleUpsertWithWhereUniqueWithoutOwnerInput[]
+    createMany?: CircleCreateManyOwnerInputEnvelope
     set?: CircleWhereUniqueInput | CircleWhereUniqueInput[]
     disconnect?: CircleWhereUniqueInput | CircleWhereUniqueInput[]
     delete?: CircleWhereUniqueInput | CircleWhereUniqueInput[]
@@ -12943,6 +13393,7 @@ export namespace Prisma {
     create?: XOR<MessageCreateWithoutUserInput, MessageUncheckedCreateWithoutUserInput> | MessageCreateWithoutUserInput[] | MessageUncheckedCreateWithoutUserInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutUserInput | MessageCreateOrConnectWithoutUserInput[]
     upsert?: MessageUpsertWithWhereUniqueWithoutUserInput | MessageUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: MessageCreateManyUserInputEnvelope
     set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
@@ -12956,6 +13407,7 @@ export namespace Prisma {
     create?: XOR<MessageCreateWithoutRecipientInput, MessageUncheckedCreateWithoutRecipientInput> | MessageCreateWithoutRecipientInput[] | MessageUncheckedCreateWithoutRecipientInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutRecipientInput | MessageCreateOrConnectWithoutRecipientInput[]
     upsert?: MessageUpsertWithWhereUniqueWithoutRecipientInput | MessageUpsertWithWhereUniqueWithoutRecipientInput[]
+    createMany?: MessageCreateManyRecipientInputEnvelope
     set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
@@ -12969,6 +13421,7 @@ export namespace Prisma {
     create?: XOR<ReviewCreateWithoutUserInput, ReviewUncheckedCreateWithoutUserInput> | ReviewCreateWithoutUserInput[] | ReviewUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ReviewCreateOrConnectWithoutUserInput | ReviewCreateOrConnectWithoutUserInput[]
     upsert?: ReviewUpsertWithWhereUniqueWithoutUserInput | ReviewUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ReviewCreateManyUserInputEnvelope
     set?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
     disconnect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
     delete?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
@@ -12981,6 +13434,7 @@ export namespace Prisma {
   export type BookingCreateNestedManyWithoutTripInput = {
     create?: XOR<BookingCreateWithoutTripInput, BookingUncheckedCreateWithoutTripInput> | BookingCreateWithoutTripInput[] | BookingUncheckedCreateWithoutTripInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutTripInput | BookingCreateOrConnectWithoutTripInput[]
+    createMany?: BookingCreateManyTripInputEnvelope
     connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
   }
 
@@ -12999,30 +13453,35 @@ export namespace Prisma {
   export type MessageCreateNestedManyWithoutTripInput = {
     create?: XOR<MessageCreateWithoutTripInput, MessageUncheckedCreateWithoutTripInput> | MessageCreateWithoutTripInput[] | MessageUncheckedCreateWithoutTripInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutTripInput | MessageCreateOrConnectWithoutTripInput[]
+    createMany?: MessageCreateManyTripInputEnvelope
     connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
   }
 
   export type ReviewCreateNestedManyWithoutTripInput = {
     create?: XOR<ReviewCreateWithoutTripInput, ReviewUncheckedCreateWithoutTripInput> | ReviewCreateWithoutTripInput[] | ReviewUncheckedCreateWithoutTripInput[]
     connectOrCreate?: ReviewCreateOrConnectWithoutTripInput | ReviewCreateOrConnectWithoutTripInput[]
+    createMany?: ReviewCreateManyTripInputEnvelope
     connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
   }
 
   export type BookingUncheckedCreateNestedManyWithoutTripInput = {
     create?: XOR<BookingCreateWithoutTripInput, BookingUncheckedCreateWithoutTripInput> | BookingCreateWithoutTripInput[] | BookingUncheckedCreateWithoutTripInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutTripInput | BookingCreateOrConnectWithoutTripInput[]
+    createMany?: BookingCreateManyTripInputEnvelope
     connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
   }
 
   export type MessageUncheckedCreateNestedManyWithoutTripInput = {
     create?: XOR<MessageCreateWithoutTripInput, MessageUncheckedCreateWithoutTripInput> | MessageCreateWithoutTripInput[] | MessageUncheckedCreateWithoutTripInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutTripInput | MessageCreateOrConnectWithoutTripInput[]
+    createMany?: MessageCreateManyTripInputEnvelope
     connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
   }
 
   export type ReviewUncheckedCreateNestedManyWithoutTripInput = {
     create?: XOR<ReviewCreateWithoutTripInput, ReviewUncheckedCreateWithoutTripInput> | ReviewCreateWithoutTripInput[] | ReviewUncheckedCreateWithoutTripInput[]
     connectOrCreate?: ReviewCreateOrConnectWithoutTripInput | ReviewCreateOrConnectWithoutTripInput[]
+    createMany?: ReviewCreateManyTripInputEnvelope
     connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
   }
 
@@ -13070,6 +13529,7 @@ export namespace Prisma {
     create?: XOR<BookingCreateWithoutTripInput, BookingUncheckedCreateWithoutTripInput> | BookingCreateWithoutTripInput[] | BookingUncheckedCreateWithoutTripInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutTripInput | BookingCreateOrConnectWithoutTripInput[]
     upsert?: BookingUpsertWithWhereUniqueWithoutTripInput | BookingUpsertWithWhereUniqueWithoutTripInput[]
+    createMany?: BookingCreateManyTripInputEnvelope
     set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
     disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
     delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
@@ -13103,6 +13563,7 @@ export namespace Prisma {
     create?: XOR<MessageCreateWithoutTripInput, MessageUncheckedCreateWithoutTripInput> | MessageCreateWithoutTripInput[] | MessageUncheckedCreateWithoutTripInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutTripInput | MessageCreateOrConnectWithoutTripInput[]
     upsert?: MessageUpsertWithWhereUniqueWithoutTripInput | MessageUpsertWithWhereUniqueWithoutTripInput[]
+    createMany?: MessageCreateManyTripInputEnvelope
     set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
@@ -13116,6 +13577,7 @@ export namespace Prisma {
     create?: XOR<ReviewCreateWithoutTripInput, ReviewUncheckedCreateWithoutTripInput> | ReviewCreateWithoutTripInput[] | ReviewUncheckedCreateWithoutTripInput[]
     connectOrCreate?: ReviewCreateOrConnectWithoutTripInput | ReviewCreateOrConnectWithoutTripInput[]
     upsert?: ReviewUpsertWithWhereUniqueWithoutTripInput | ReviewUpsertWithWhereUniqueWithoutTripInput[]
+    createMany?: ReviewCreateManyTripInputEnvelope
     set?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
     disconnect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
     delete?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
@@ -13129,6 +13591,7 @@ export namespace Prisma {
     create?: XOR<BookingCreateWithoutTripInput, BookingUncheckedCreateWithoutTripInput> | BookingCreateWithoutTripInput[] | BookingUncheckedCreateWithoutTripInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutTripInput | BookingCreateOrConnectWithoutTripInput[]
     upsert?: BookingUpsertWithWhereUniqueWithoutTripInput | BookingUpsertWithWhereUniqueWithoutTripInput[]
+    createMany?: BookingCreateManyTripInputEnvelope
     set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
     disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
     delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
@@ -13142,6 +13605,7 @@ export namespace Prisma {
     create?: XOR<MessageCreateWithoutTripInput, MessageUncheckedCreateWithoutTripInput> | MessageCreateWithoutTripInput[] | MessageUncheckedCreateWithoutTripInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutTripInput | MessageCreateOrConnectWithoutTripInput[]
     upsert?: MessageUpsertWithWhereUniqueWithoutTripInput | MessageUpsertWithWhereUniqueWithoutTripInput[]
+    createMany?: MessageCreateManyTripInputEnvelope
     set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
@@ -13155,6 +13619,7 @@ export namespace Prisma {
     create?: XOR<ReviewCreateWithoutTripInput, ReviewUncheckedCreateWithoutTripInput> | ReviewCreateWithoutTripInput[] | ReviewUncheckedCreateWithoutTripInput[]
     connectOrCreate?: ReviewCreateOrConnectWithoutTripInput | ReviewCreateOrConnectWithoutTripInput[]
     upsert?: ReviewUpsertWithWhereUniqueWithoutTripInput | ReviewUpsertWithWhereUniqueWithoutTripInput[]
+    createMany?: ReviewCreateManyTripInputEnvelope
     set?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
     disconnect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
     delete?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
@@ -13201,36 +13666,42 @@ export namespace Prisma {
   export type CircleMemberCreateNestedManyWithoutCircleInput = {
     create?: XOR<CircleMemberCreateWithoutCircleInput, CircleMemberUncheckedCreateWithoutCircleInput> | CircleMemberCreateWithoutCircleInput[] | CircleMemberUncheckedCreateWithoutCircleInput[]
     connectOrCreate?: CircleMemberCreateOrConnectWithoutCircleInput | CircleMemberCreateOrConnectWithoutCircleInput[]
+    createMany?: CircleMemberCreateManyCircleInputEnvelope
     connect?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
   }
 
   export type TripCreateNestedManyWithoutCircleInput = {
     create?: XOR<TripCreateWithoutCircleInput, TripUncheckedCreateWithoutCircleInput> | TripCreateWithoutCircleInput[] | TripUncheckedCreateWithoutCircleInput[]
     connectOrCreate?: TripCreateOrConnectWithoutCircleInput | TripCreateOrConnectWithoutCircleInput[]
+    createMany?: TripCreateManyCircleInputEnvelope
     connect?: TripWhereUniqueInput | TripWhereUniqueInput[]
   }
 
   export type MessageCreateNestedManyWithoutCircleInput = {
     create?: XOR<MessageCreateWithoutCircleInput, MessageUncheckedCreateWithoutCircleInput> | MessageCreateWithoutCircleInput[] | MessageUncheckedCreateWithoutCircleInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutCircleInput | MessageCreateOrConnectWithoutCircleInput[]
+    createMany?: MessageCreateManyCircleInputEnvelope
     connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
   }
 
   export type CircleMemberUncheckedCreateNestedManyWithoutCircleInput = {
     create?: XOR<CircleMemberCreateWithoutCircleInput, CircleMemberUncheckedCreateWithoutCircleInput> | CircleMemberCreateWithoutCircleInput[] | CircleMemberUncheckedCreateWithoutCircleInput[]
     connectOrCreate?: CircleMemberCreateOrConnectWithoutCircleInput | CircleMemberCreateOrConnectWithoutCircleInput[]
+    createMany?: CircleMemberCreateManyCircleInputEnvelope
     connect?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
   }
 
   export type TripUncheckedCreateNestedManyWithoutCircleInput = {
     create?: XOR<TripCreateWithoutCircleInput, TripUncheckedCreateWithoutCircleInput> | TripCreateWithoutCircleInput[] | TripUncheckedCreateWithoutCircleInput[]
     connectOrCreate?: TripCreateOrConnectWithoutCircleInput | TripCreateOrConnectWithoutCircleInput[]
+    createMany?: TripCreateManyCircleInputEnvelope
     connect?: TripWhereUniqueInput | TripWhereUniqueInput[]
   }
 
   export type MessageUncheckedCreateNestedManyWithoutCircleInput = {
     create?: XOR<MessageCreateWithoutCircleInput, MessageUncheckedCreateWithoutCircleInput> | MessageCreateWithoutCircleInput[] | MessageUncheckedCreateWithoutCircleInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutCircleInput | MessageCreateOrConnectWithoutCircleInput[]
+    createMany?: MessageCreateManyCircleInputEnvelope
     connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
   }
 
@@ -13246,6 +13717,7 @@ export namespace Prisma {
     create?: XOR<CircleMemberCreateWithoutCircleInput, CircleMemberUncheckedCreateWithoutCircleInput> | CircleMemberCreateWithoutCircleInput[] | CircleMemberUncheckedCreateWithoutCircleInput[]
     connectOrCreate?: CircleMemberCreateOrConnectWithoutCircleInput | CircleMemberCreateOrConnectWithoutCircleInput[]
     upsert?: CircleMemberUpsertWithWhereUniqueWithoutCircleInput | CircleMemberUpsertWithWhereUniqueWithoutCircleInput[]
+    createMany?: CircleMemberCreateManyCircleInputEnvelope
     set?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
     disconnect?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
     delete?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
@@ -13259,6 +13731,7 @@ export namespace Prisma {
     create?: XOR<TripCreateWithoutCircleInput, TripUncheckedCreateWithoutCircleInput> | TripCreateWithoutCircleInput[] | TripUncheckedCreateWithoutCircleInput[]
     connectOrCreate?: TripCreateOrConnectWithoutCircleInput | TripCreateOrConnectWithoutCircleInput[]
     upsert?: TripUpsertWithWhereUniqueWithoutCircleInput | TripUpsertWithWhereUniqueWithoutCircleInput[]
+    createMany?: TripCreateManyCircleInputEnvelope
     set?: TripWhereUniqueInput | TripWhereUniqueInput[]
     disconnect?: TripWhereUniqueInput | TripWhereUniqueInput[]
     delete?: TripWhereUniqueInput | TripWhereUniqueInput[]
@@ -13272,6 +13745,7 @@ export namespace Prisma {
     create?: XOR<MessageCreateWithoutCircleInput, MessageUncheckedCreateWithoutCircleInput> | MessageCreateWithoutCircleInput[] | MessageUncheckedCreateWithoutCircleInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutCircleInput | MessageCreateOrConnectWithoutCircleInput[]
     upsert?: MessageUpsertWithWhereUniqueWithoutCircleInput | MessageUpsertWithWhereUniqueWithoutCircleInput[]
+    createMany?: MessageCreateManyCircleInputEnvelope
     set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
@@ -13285,6 +13759,7 @@ export namespace Prisma {
     create?: XOR<CircleMemberCreateWithoutCircleInput, CircleMemberUncheckedCreateWithoutCircleInput> | CircleMemberCreateWithoutCircleInput[] | CircleMemberUncheckedCreateWithoutCircleInput[]
     connectOrCreate?: CircleMemberCreateOrConnectWithoutCircleInput | CircleMemberCreateOrConnectWithoutCircleInput[]
     upsert?: CircleMemberUpsertWithWhereUniqueWithoutCircleInput | CircleMemberUpsertWithWhereUniqueWithoutCircleInput[]
+    createMany?: CircleMemberCreateManyCircleInputEnvelope
     set?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
     disconnect?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
     delete?: CircleMemberWhereUniqueInput | CircleMemberWhereUniqueInput[]
@@ -13298,6 +13773,7 @@ export namespace Prisma {
     create?: XOR<TripCreateWithoutCircleInput, TripUncheckedCreateWithoutCircleInput> | TripCreateWithoutCircleInput[] | TripUncheckedCreateWithoutCircleInput[]
     connectOrCreate?: TripCreateOrConnectWithoutCircleInput | TripCreateOrConnectWithoutCircleInput[]
     upsert?: TripUpsertWithWhereUniqueWithoutCircleInput | TripUpsertWithWhereUniqueWithoutCircleInput[]
+    createMany?: TripCreateManyCircleInputEnvelope
     set?: TripWhereUniqueInput | TripWhereUniqueInput[]
     disconnect?: TripWhereUniqueInput | TripWhereUniqueInput[]
     delete?: TripWhereUniqueInput | TripWhereUniqueInput[]
@@ -13311,6 +13787,7 @@ export namespace Prisma {
     create?: XOR<MessageCreateWithoutCircleInput, MessageUncheckedCreateWithoutCircleInput> | MessageCreateWithoutCircleInput[] | MessageUncheckedCreateWithoutCircleInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutCircleInput | MessageCreateOrConnectWithoutCircleInput[]
     upsert?: MessageUpsertWithWhereUniqueWithoutCircleInput | MessageUpsertWithWhereUniqueWithoutCircleInput[]
+    createMany?: MessageCreateManyCircleInputEnvelope
     set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
@@ -13351,12 +13828,14 @@ export namespace Prisma {
   export type MessageCreateNestedManyWithoutOrganizerInput = {
     create?: XOR<MessageCreateWithoutOrganizerInput, MessageUncheckedCreateWithoutOrganizerInput> | MessageCreateWithoutOrganizerInput[] | MessageUncheckedCreateWithoutOrganizerInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutOrganizerInput | MessageCreateOrConnectWithoutOrganizerInput[]
+    createMany?: MessageCreateManyOrganizerInputEnvelope
     connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
   }
 
   export type MessageUncheckedCreateNestedManyWithoutOrganizerInput = {
     create?: XOR<MessageCreateWithoutOrganizerInput, MessageUncheckedCreateWithoutOrganizerInput> | MessageCreateWithoutOrganizerInput[] | MessageUncheckedCreateWithoutOrganizerInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutOrganizerInput | MessageCreateOrConnectWithoutOrganizerInput[]
+    createMany?: MessageCreateManyOrganizerInputEnvelope
     connect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
   }
 
@@ -13364,6 +13843,7 @@ export namespace Prisma {
     create?: XOR<MessageCreateWithoutOrganizerInput, MessageUncheckedCreateWithoutOrganizerInput> | MessageCreateWithoutOrganizerInput[] | MessageUncheckedCreateWithoutOrganizerInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutOrganizerInput | MessageCreateOrConnectWithoutOrganizerInput[]
     upsert?: MessageUpsertWithWhereUniqueWithoutOrganizerInput | MessageUpsertWithWhereUniqueWithoutOrganizerInput[]
+    createMany?: MessageCreateManyOrganizerInputEnvelope
     set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
@@ -13377,6 +13857,7 @@ export namespace Prisma {
     create?: XOR<MessageCreateWithoutOrganizerInput, MessageUncheckedCreateWithoutOrganizerInput> | MessageCreateWithoutOrganizerInput[] | MessageUncheckedCreateWithoutOrganizerInput[]
     connectOrCreate?: MessageCreateOrConnectWithoutOrganizerInput | MessageCreateOrConnectWithoutOrganizerInput[]
     upsert?: MessageUpsertWithWhereUniqueWithoutOrganizerInput | MessageUpsertWithWhereUniqueWithoutOrganizerInput[]
+    createMany?: MessageCreateManyOrganizerInputEnvelope
     set?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     disconnect?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
     delete?: MessageWhereUniqueInput | MessageWhereUniqueInput[]
@@ -13498,8 +13979,8 @@ export namespace Prisma {
 
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -13512,8 +13993,8 @@ export namespace Prisma {
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -13526,8 +14007,8 @@ export namespace Prisma {
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -13537,8 +14018,8 @@ export namespace Prisma {
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -13554,8 +14035,8 @@ export namespace Prisma {
 
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -13565,8 +14046,8 @@ export namespace Prisma {
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -13582,8 +14063,8 @@ export namespace Prisma {
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -13593,8 +14074,8 @@ export namespace Prisma {
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -13607,8 +14088,8 @@ export namespace Prisma {
 
   export type NestedFloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -13618,8 +14099,8 @@ export namespace Prisma {
 
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -13634,8 +14115,8 @@ export namespace Prisma {
 
   export type NestedFloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -13645,8 +14126,8 @@ export namespace Prisma {
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -13661,8 +14142,8 @@ export namespace Prisma {
 
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -13677,8 +14158,8 @@ export namespace Prisma {
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -13699,8 +14180,8 @@ export namespace Prisma {
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -13715,8 +14196,8 @@ export namespace Prisma {
 
   export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -13756,6 +14237,11 @@ export namespace Prisma {
   export type BookingCreateOrConnectWithoutUserInput = {
     where: BookingWhereUniqueInput
     create: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput>
+  }
+
+  export type BookingCreateManyUserInputEnvelope = {
+    data: BookingCreateManyUserInput | BookingCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type TripCreateWithoutCreatorInput = {
@@ -13865,6 +14351,11 @@ export namespace Prisma {
     create: XOR<TripCreateWithoutCreatorInput, TripUncheckedCreateWithoutCreatorInput>
   }
 
+  export type TripCreateManyCreatorInputEnvelope = {
+    data: TripCreateManyCreatorInput | TripCreateManyCreatorInput[]
+    skipDuplicates?: boolean
+  }
+
   export type CircleMemberCreateWithoutUserInput = {
     id?: string
     joinedAt?: Date | string
@@ -13880,6 +14371,11 @@ export namespace Prisma {
   export type CircleMemberCreateOrConnectWithoutUserInput = {
     where: CircleMemberWhereUniqueInput
     create: XOR<CircleMemberCreateWithoutUserInput, CircleMemberUncheckedCreateWithoutUserInput>
+  }
+
+  export type CircleMemberCreateManyUserInputEnvelope = {
+    data: CircleMemberCreateManyUserInput | CircleMemberCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type CircleCreateWithoutOwnerInput = {
@@ -13911,6 +14407,11 @@ export namespace Prisma {
     create: XOR<CircleCreateWithoutOwnerInput, CircleUncheckedCreateWithoutOwnerInput>
   }
 
+  export type CircleCreateManyOwnerInputEnvelope = {
+    data: CircleCreateManyOwnerInput | CircleCreateManyOwnerInput[]
+    skipDuplicates?: boolean
+  }
+
   export type MessageCreateWithoutUserInput = {
     id?: string
     content: string
@@ -13938,6 +14439,11 @@ export namespace Prisma {
   export type MessageCreateOrConnectWithoutUserInput = {
     where: MessageWhereUniqueInput
     create: XOR<MessageCreateWithoutUserInput, MessageUncheckedCreateWithoutUserInput>
+  }
+
+  export type MessageCreateManyUserInputEnvelope = {
+    data: MessageCreateManyUserInput | MessageCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type MessageCreateWithoutRecipientInput = {
@@ -13969,6 +14475,11 @@ export namespace Prisma {
     create: XOR<MessageCreateWithoutRecipientInput, MessageUncheckedCreateWithoutRecipientInput>
   }
 
+  export type MessageCreateManyRecipientInputEnvelope = {
+    data: MessageCreateManyRecipientInput | MessageCreateManyRecipientInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ReviewCreateWithoutUserInput = {
     id?: string
     rating: number
@@ -13990,6 +14501,11 @@ export namespace Prisma {
   export type ReviewCreateOrConnectWithoutUserInput = {
     where: ReviewWhereUniqueInput
     create: XOR<ReviewCreateWithoutUserInput, ReviewUncheckedCreateWithoutUserInput>
+  }
+
+  export type ReviewCreateManyUserInputEnvelope = {
+    data: ReviewCreateManyUserInput | ReviewCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type BookingUpsertWithWhereUniqueWithoutUserInput = {
@@ -14253,6 +14769,11 @@ export namespace Prisma {
     create: XOR<BookingCreateWithoutTripInput, BookingUncheckedCreateWithoutTripInput>
   }
 
+  export type BookingCreateManyTripInputEnvelope = {
+    data: BookingCreateManyTripInput | BookingCreateManyTripInput[]
+    skipDuplicates?: boolean
+  }
+
   export type UserCreateWithoutCreatedTripsInput = {
     id?: string
     name?: string | null
@@ -14352,6 +14873,11 @@ export namespace Prisma {
     create: XOR<MessageCreateWithoutTripInput, MessageUncheckedCreateWithoutTripInput>
   }
 
+  export type MessageCreateManyTripInputEnvelope = {
+    data: MessageCreateManyTripInput | MessageCreateManyTripInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ReviewCreateWithoutTripInput = {
     id?: string
     rating: number
@@ -14373,6 +14899,11 @@ export namespace Prisma {
   export type ReviewCreateOrConnectWithoutTripInput = {
     where: ReviewWhereUniqueInput
     create: XOR<ReviewCreateWithoutTripInput, ReviewUncheckedCreateWithoutTripInput>
+  }
+
+  export type ReviewCreateManyTripInputEnvelope = {
+    data: ReviewCreateManyTripInput | ReviewCreateManyTripInput[]
+    skipDuplicates?: boolean
   }
 
   export type BookingUpsertWithWhereUniqueWithoutTripInput = {
@@ -14871,6 +15402,11 @@ export namespace Prisma {
     create: XOR<CircleMemberCreateWithoutCircleInput, CircleMemberUncheckedCreateWithoutCircleInput>
   }
 
+  export type CircleMemberCreateManyCircleInputEnvelope = {
+    data: CircleMemberCreateManyCircleInput | CircleMemberCreateManyCircleInput[]
+    skipDuplicates?: boolean
+  }
+
   export type TripCreateWithoutCircleInput = {
     id?: string
     title: string
@@ -14978,6 +15514,11 @@ export namespace Prisma {
     create: XOR<TripCreateWithoutCircleInput, TripUncheckedCreateWithoutCircleInput>
   }
 
+  export type TripCreateManyCircleInputEnvelope = {
+    data: TripCreateManyCircleInput | TripCreateManyCircleInput[]
+    skipDuplicates?: boolean
+  }
+
   export type MessageCreateWithoutCircleInput = {
     id?: string
     content: string
@@ -15005,6 +15546,11 @@ export namespace Prisma {
   export type MessageCreateOrConnectWithoutCircleInput = {
     where: MessageWhereUniqueInput
     create: XOR<MessageCreateWithoutCircleInput, MessageUncheckedCreateWithoutCircleInput>
+  }
+
+  export type MessageCreateManyCircleInputEnvelope = {
+    data: MessageCreateManyCircleInput | MessageCreateManyCircleInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserUpsertWithoutOwnedCirclesInput = {
@@ -15281,6 +15827,11 @@ export namespace Prisma {
   export type MessageCreateOrConnectWithoutOrganizerInput = {
     where: MessageWhereUniqueInput
     create: XOR<MessageCreateWithoutOrganizerInput, MessageUncheckedCreateWithoutOrganizerInput>
+  }
+
+  export type MessageCreateManyOrganizerInputEnvelope = {
+    data: MessageCreateManyOrganizerInput | MessageCreateManyOrganizerInput[]
+    skipDuplicates?: boolean
   }
 
   export type MessageUpsertWithWhereUniqueWithoutOrganizerInput = {
@@ -16131,6 +16682,114 @@ export namespace Prisma {
     messages?: MessageUncheckedUpdateManyWithoutTripNestedInput
   }
 
+  export type BookingCreateManyUserInput = {
+    id?: string
+    tripId: string
+    date: Date | string
+    guests: number
+    totalPrice: number
+    status?: string
+    paymentStatus?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TripCreateManyCreatorInput = {
+    id?: string
+    title: string
+    description: string
+    image?: string | null
+    gallery?: string | null
+    location: string
+    duration?: string | null
+    durationDays?: number
+    rating?: number
+    reviewCount?: number
+    price?: number
+    difficulty?: string
+    highlights?: string | null
+    itinerary?: string | null
+    inclusions?: string | null
+    exclusions?: string | null
+    bestTime?: string | null
+    tripType?: string | null
+    summitHeight?: string | null
+    region?: string | null
+    placesOfInterest?: string | null
+    routeImage?: string | null
+    route?: string | null
+    requirements?: string | null
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    isPrivate?: boolean
+    isTest?: boolean
+    activities?: string | null
+    capacity?: number | null
+    startingLocation?: string | null
+    returnLocation?: string | null
+    accommodation?: string | null
+    platformFee?: number | null
+    discountAmount?: number | null
+    tourGuideDetails?: string | null
+    tourGuidePhoto?: string | null
+    cancellationPolicy?: string | null
+    termsAndConditions?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    status?: string
+    deletedAt?: Date | string | null
+    circleId?: string | null
+  }
+
+  export type CircleMemberCreateManyUserInput = {
+    id?: string
+    circleId: string
+    joinedAt?: Date | string
+  }
+
+  export type CircleCreateManyOwnerInput = {
+    id?: string
+    name: string
+    description: string
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MessageCreateManyUserInput = {
+    id?: string
+    content: string
+    createdAt?: Date | string
+    isRead?: boolean
+    sender: string
+    tripId?: string | null
+    circleId?: string | null
+    organizerId?: string | null
+    recipientId?: string | null
+  }
+
+  export type MessageCreateManyRecipientInput = {
+    id?: string
+    content: string
+    createdAt?: Date | string
+    isRead?: boolean
+    sender: string
+    tripId?: string | null
+    circleId?: string | null
+    organizerId?: string | null
+    userId?: string | null
+  }
+
+  export type ReviewCreateManyUserInput = {
+    id?: string
+    rating: number
+    content: string
+    tripId?: string | null
+    isFeatured?: boolean
+    createdAt?: Date | string
+  }
+
   export type BookingUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16467,6 +17126,39 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type BookingCreateManyTripInput = {
+    id?: string
+    userId: string
+    date: Date | string
+    guests: number
+    totalPrice: number
+    status?: string
+    paymentStatus?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MessageCreateManyTripInput = {
+    id?: string
+    content: string
+    createdAt?: Date | string
+    isRead?: boolean
+    sender: string
+    circleId?: string | null
+    organizerId?: string | null
+    userId?: string | null
+    recipientId?: string | null
+  }
+
+  export type ReviewCreateManyTripInput = {
+    id?: string
+    rating: number
+    content: string
+    userId: string
+    isFeatured?: boolean
+    createdAt?: Date | string
+  }
+
   export type BookingUpdateWithoutTripInput = {
     id?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16564,6 +17256,72 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     isFeatured?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CircleMemberCreateManyCircleInput = {
+    id?: string
+    userId: string
+    joinedAt?: Date | string
+  }
+
+  export type TripCreateManyCircleInput = {
+    id?: string
+    title: string
+    description: string
+    image?: string | null
+    gallery?: string | null
+    location: string
+    duration?: string | null
+    durationDays?: number
+    rating?: number
+    reviewCount?: number
+    price?: number
+    difficulty?: string
+    highlights?: string | null
+    itinerary?: string | null
+    inclusions?: string | null
+    exclusions?: string | null
+    bestTime?: string | null
+    tripType?: string | null
+    summitHeight?: string | null
+    region?: string | null
+    placesOfInterest?: string | null
+    routeImage?: string | null
+    route?: string | null
+    requirements?: string | null
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    isPrivate?: boolean
+    isTest?: boolean
+    activities?: string | null
+    capacity?: number | null
+    startingLocation?: string | null
+    returnLocation?: string | null
+    accommodation?: string | null
+    platformFee?: number | null
+    discountAmount?: number | null
+    tourGuideDetails?: string | null
+    tourGuidePhoto?: string | null
+    cancellationPolicy?: string | null
+    termsAndConditions?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    status?: string
+    deletedAt?: Date | string | null
+    creatorId?: string | null
+  }
+
+  export type MessageCreateManyCircleInput = {
+    id?: string
+    content: string
+    createdAt?: Date | string
+    isRead?: boolean
+    sender: string
+    tripId?: string | null
+    organizerId?: string | null
+    userId?: string | null
+    recipientId?: string | null
   }
 
   export type CircleMemberUpdateWithoutCircleInput = {
@@ -16768,6 +17526,18 @@ export namespace Prisma {
     organizerId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     recipientId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type MessageCreateManyOrganizerInput = {
+    id?: string
+    content: string
+    createdAt?: Date | string
+    isRead?: boolean
+    sender: string
+    tripId?: string | null
+    circleId?: string | null
+    userId?: string | null
+    recipientId?: string | null
   }
 
   export type MessageUpdateWithoutOrganizerInput = {
