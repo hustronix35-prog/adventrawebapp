@@ -6,6 +6,8 @@ import Categories from "@/components/home/Categories";
 import PlanTripSection from "@/components/home/PlanTripSection";
 import Testimonials from "@/components/home/Testimonials";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
