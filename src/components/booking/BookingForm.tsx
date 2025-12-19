@@ -7,7 +7,7 @@ import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Card from "@/components/ui/Card";
 import { createBooking } from "@/app/actions/booking";
-import { Trip } from "@prisma/client";
+import { Trip } from "../../generated/client_v2";
 
 interface BookingFormProps {
     trip: Trip;
@@ -98,6 +98,7 @@ export default function BookingForm({ trip }: BookingFormProps) {
                                     <div className="relative">
                                         <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-primary w-5 h-5 pointer-events-none" />
                                         <input
+                                            aria-label="Select Date"
                                             type="date"
                                             required
                                             className="w-full pl-12 pr-4 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-gray-900 hover:bg-white"
