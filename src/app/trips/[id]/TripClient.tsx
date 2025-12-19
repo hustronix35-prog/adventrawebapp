@@ -88,6 +88,8 @@ export default function TripClient({
                             tripType={trip.tripType}
                             summitHeight={trip.summitHeight}
                             region={trip.region}
+                            inclusions={inclusions}
+                            exclusions={exclusions}
                         />
 
                         <PlacesOfInterest places={placesOfInterest} />
