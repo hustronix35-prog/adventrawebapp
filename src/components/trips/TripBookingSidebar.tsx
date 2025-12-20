@@ -52,7 +52,7 @@ export default function TripBookingSidebar({ price, tripId }: TripBookingSidebar
                         <div className="absolute top-full left-0 w-full mt-2 z-20 bg-white p-2 rounded-xl shadow-xl border border-gray-100">
                             <DatePicker
                                 selected={date}
-                                onChange={(d) => {
+                                onChange={(d: Date | null) => {
                                     setDate(d);
                                     setIsDatePickerOpen(false);
                                 }}
