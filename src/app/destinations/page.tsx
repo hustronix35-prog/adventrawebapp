@@ -8,16 +8,24 @@ export const dynamic = "force-dynamic";
 export default async function DestinationsPage() {
     // Fetch all trips to extract unique locations
     // Fetch all trips to extract unique locations
-    const trips = await prisma.trip.findMany({
-        where: {
-            // status: 'active', // Show all trips including drafts
-            deletedAt: null,
-        },
-        select: {
-            location: true,
-            image: true,
-        },
-    });
+    let trips: any[] = [];
+    try {
+        // Fetch all trips to extract unique locations
+        trips = await prisma.trip.findMany({
+            where: {
+                // status: 'active', // Show all trips including drafts
+                deletedAt: null,
+            },
+            select: {
+                location: true,
+                image: true,
+            },
+        });
+    } catch (error) {
+        console.error("Failed to fetch destinations:", error);
+        // Fallback or empty array so the page doesn't crash
+        trips = [];
+    }
 
     // Group by location and get one image per location
     const destinationsMap = new Map<string, { image: string | null; count: number }>();

@@ -113,12 +113,19 @@ export default async function TripsPage(props: { searchParams: Promise<TripsPage
     // where.status = 'active'; // Show all trips including drafts as per user request
     where.deletedAt = null;
 
-    const trips = await prisma.trip.findMany({
-        where,
-        orderBy: {
-            createdAt: 'desc',
-        },
-    });
+    let trips: any[] = [];
+    try {
+        trips = await prisma.trip.findMany({
+            where,
+            orderBy: {
+                createdAt: 'desc',
+            },
+        });
+    } catch (error) {
+        console.error("Failed to fetch trips:", error);
+        // Fallback or empty array so the page doesn't crash
+        trips = [];
+    }
 
     const isMapView = searchParams.view === "map";
 

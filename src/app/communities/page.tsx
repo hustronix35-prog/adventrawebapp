@@ -15,7 +15,13 @@ export default async function CommunitiesPage() {
         console.error("Session check failed (non-blocking):", error);
     }
 
-    const communities = await getCommunities()
+    let communities: any[] = [];
+    try {
+        communities = await getCommunities();
+    } catch (error) {
+        console.error("Failed to fetch communities:", error);
+        communities = [];
+    }
 
     return (
         <div className="min-h-screen bg-gray-50 pt-24 pb-12">
