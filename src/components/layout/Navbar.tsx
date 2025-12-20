@@ -121,6 +121,7 @@ export default function Navbar() {
                 {/* Mobile Menu Button */}
                 <button
                     className="md:hidden p-2"
+                    aria-label="Toggle mobile menu"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? (
@@ -138,6 +139,7 @@ export default function Navbar() {
                         <div className="flex justify-end mb-8">
                             <button
                                 onClick={() => setIsMobileMenuOpen(false)}
+                                aria-label="Close mobile menu"
                                 className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                             >
                                 <X className="w-6 h-6 text-gray-900" />
