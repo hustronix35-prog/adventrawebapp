@@ -7,7 +7,7 @@ import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Card from "@/components/ui/Card";
 import { createBooking } from "@/app/actions/booking";
-import { Trip } from "../../generated/client_v2";
+import { Trip } from "@prisma/client";
 
 interface BookingFormProps {
     trip: Trip;
