@@ -5,6 +5,7 @@ import Button from "@/components/ui/Button";
 import Link from "next/link";
 import TripGallery from "@/components/trips/TripGallery";
 import TripClient from "./TripClient";
+import MobileBookingBar from "@/components/trips/MobileBookingBar";
 import Image from "next/image";
 
 export default async function TripDetailPage(props: { params: Promise<{ id: string }> }) {
@@ -29,6 +30,7 @@ export default async function TripDetailPage(props: { params: Promise<{ id: stri
 
     return (
         <div className="bg-white min-h-screen pb-20 pt-24">
+            <MobileBookingBar price={trip.price} tripId={trip.id} />
             <div className="container mx-auto px-4">
                 {/* Breadcrumb & Header */}
                 <div className="mb-6">

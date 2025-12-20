@@ -131,55 +131,72 @@ export default function Navbar() {
                 </button>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Overlay */}
             {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 px-4 flex flex-col gap-4 animate-in slide-in-from-top-5">
-                    {["Destinations", "Trips", "Community", "About", "Contact"].map((item) => (
-                        <Link
-                            key={item}
-                            href={item === "Community" ? "/communities" : `/${item.toLowerCase()}`}
-                            className="text-lg font-medium text-gray-800 py-2 border-b border-gray-100"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            {item}
-                        </Link>
-                    ))}
-                    {session ? (
-                        <>
+                <div className="md:hidden fixed inset-0 z-[100] bg-white/95 backdrop-blur-xl transition-all duration-300 animate-in fade-in slide-in-from-bottom-10">
+                    <div className="flex flex-col h-full p-6">
+                        <div className="flex justify-end mb-8">
+                            <button
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                            >
+                                <X className="w-6 h-6 text-gray-900" />
+                            </button>
+                        </div>
+
+                        <div className="flex flex-col items-center justify-center flex-grow gap-8">
+                            {["Destinations", "Trips", "Community", "About", "Contact"].map((item, index) => (
+                                <Link
+                                    key={item}
+                                    href={item === "Community" ? "/communities" : `/${item.toLowerCase()}`}
+                                    className="text-4xl font-bold text-gray-900 tracking-tight hover:text-primary transition-colors text-center"
+                                    style={{ animationDelay: `${index * 50}ms` }}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    {item}
+                                </Link>
+                            ))}
+
+                            {session ? (
+                                <>
+                                    <Link
+                                        href="/dashboard"
+                                        className="text-2xl font-medium text-gray-600 hover:text-primary transition-colors mt-4"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        My Dashboard
+                                    </Link>
+                                    <button
+                                        onClick={() => {
+                                            signOut({ callbackUrl: '/' });
+                                            setIsMobileMenuOpen(false);
+                                        }}
+                                        className="text-xl font-medium text-red-500 hover:text-red-600 transition-colors"
+                                    >
+                                        Sign Out
+                                    </button>
+                                </>
+                            ) : (
+                                <Link
+                                    href="/login"
+                                    className="text-2xl font-medium text-gray-600 hover:text-primary transition-colors mt-4"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Sign In
+                                </Link>
+                            )}
+                        </div>
+
+                        <div className="mt-auto pt-8">
                             <Link
-                                href="/dashboard"
-                                className="text-lg font-medium text-gray-800 py-2 border-b border-gray-100"
+                                href="/trips"
+                                className="w-full block bg-primary text-white text-center py-4 rounded-2xl text-xl font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                My Dashboard
+                                Book Your Adventure
                             </Link>
-                            <button
-                                onClick={() => {
-                                    // Explicitly redirect to Home using absolute URL
-                                    signOut({ callbackUrl: '/' });
-                                    setIsMobileMenuOpen(false);
-                                }}
-                                className="text-lg font-medium text-red-600 py-2 border-b border-gray-100 text-left w-full"
-                            >
-                                Sign Out
-                            </button>
-                        </>
-                    ) : (
-                        <Link
-                            href="/login"
-                            className="text-lg font-medium text-gray-800 py-2 border-b border-gray-100"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            Sign In
-                        </Link>
-                    )}
-                    <Link
-                        href="/trips"
-                        className="w-full text-center bg-primary text-white py-3 rounded-full font-semibold mt-2"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                        Book Now
-                    </Link>
+                        </div>
+                    </div>
                 </div>
             )}
         </header>
