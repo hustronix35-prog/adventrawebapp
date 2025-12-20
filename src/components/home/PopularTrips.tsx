@@ -3,20 +3,27 @@ import TripCard from "../trips/TripCard";
 import Button from "../ui/Button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { Trip } from "@prisma/client";
 
 export default async function PopularTrips() {
-    // Fetch top 4 active trips, prioritizing those with images
-    const trips = await prisma.trip.findMany({
-        where: {
-            status: 'active', // Ensure we only show active trips
-            deletedAt: null
-        },
-        take: 4,
-        orderBy: [
-            { views: 'desc' }, // Sort by views (popularity)
-            { rating: 'desc' } // Fallback to rating
-        ]
-    });
+    let trips: Trip[] = [];
+    try {
+        // Fetch top 4 active trips, prioritizing those with images
+        trips = await prisma.trip.findMany({
+            where: {
+                status: 'active', // Ensure we only show active trips
+                deletedAt: null
+            },
+            take: 4,
+            orderBy: [
+                { views: 'desc' }, // Sort by views (popularity)
+                { rating: 'desc' } // Fallback to rating
+            ]
+        });
+    } catch (error) {
+        console.error("Failed to fetch popular trips:", error);
+        // Fallback to empty array
+    }
 
     return (
         <section className="py-20 bg-gray-50">

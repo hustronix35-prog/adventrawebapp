@@ -2,22 +2,27 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import TripCard from "../trips/TripCard";
 import { prisma } from "@/lib/prisma";
+import { Trip } from "@prisma/client";
 
 export default async function OrganizedTrips() {
-    // Fetch 3 random or curated trips for the "Organized Trips" section
-    // In a real app, maybe filter by "isFeatured" or specific category
-    // For now, we take 3 trips skipping the first 4 (used in top popular)
-    const trips = await prisma.trip.findMany({
-        where: {
-            status: 'active',
-            deletedAt: null
-        },
-        take: 3,
-        skip: 4,
-        orderBy: {
-            updatedAt: 'desc'
-        }
-    });
+    let trips: Trip[] = [];
+    try {
+        // Fetch 3 random or curated trips for the "Organized Trips" section
+        trips = await prisma.trip.findMany({
+            where: {
+                status: 'active',
+                deletedAt: null
+            },
+            take: 3,
+            skip: 4,
+            orderBy: {
+                updatedAt: 'desc'
+            }
+        });
+    } catch (error) {
+        console.error("Failed to fetch organized trips:", error);
+        // Fallback to empty array
+    }
 
     return (
         <section className="py-16 bg-white">
