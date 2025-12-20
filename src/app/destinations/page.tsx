@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
+import DestinationCard from "@/components/destinations/DestinationCard";
 
 export const dynamic = "force-dynamic";
 
@@ -67,27 +68,12 @@ export default async function DestinationsPage() {
                 {destinations.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {destinations.map((destination) => (
-                            <Link
+                            <DestinationCard
                                 key={destination.name}
-                                href={`/trips?location=${encodeURIComponent(destination.name)}`}
-                                className="group relative h-80 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-                            >
-                                <img
-                                    src={destination.image}
-                                    alt={destination.name}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                <div className="absolute bottom-0 left-0 w-full p-6">
-                                    <div className="flex items-center text-white mb-2">
-                                        <MapPin className="w-5 h-5 mr-2 text-primary" />
-                                        <h2 className="text-2xl font-bold">{destination.name}</h2>
-                                    </div>
-                                    <p className="text-gray-300 group-hover:text-white transition-colors">
-                                        {destination.count} {destination.count === 1 ? 'Adventure' : 'Adventures'} &rarr;
-                                    </p>
-                                </div>
-                            </Link>
+                                name={destination.name}
+                                image={destination.image}
+                                count={destination.count}
+                            />
                         ))}
                     </div>
                 ) : (

@@ -69,17 +69,12 @@ export default async function TripDetailPage(props: { params: Promise<{ id: stri
                     </div>
 
                     {/* Booking Sidebar */}
+                    {/* Booking Sidebar */}
                     <div className="lg:w-1/3">
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-600">24/7 Support</span>
-                        <CheckCircle2 className="w-4 h-4 text-green-600" />
+                        <TripBookingSidebar price={trip.price} tripId={trip.id} />
                     </div>
                 </div>
             </div>
         </div>
-                </div >
-            </div >
-        </div >
     );
 }
