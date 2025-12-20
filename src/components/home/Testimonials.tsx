@@ -2,24 +2,31 @@ import { Star, Quote } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 
 export default async function Testimonials() {
-    const reviews = await prisma.review.findMany({
-        where: {
-            isFeatured: true
-        },
-        take: 3,
-        orderBy: {
-            createdAt: 'desc'
-        },
-        include: {
-            user: {
-                select: {
-                    name: true,
-                    image: true,
-                    location: true
+    let reviews: any[] = [];
+    try {
+        reviews = await prisma.review.findMany({
+            where: {
+                isFeatured: true
+            },
+            take: 3,
+            orderBy: {
+                createdAt: 'desc'
+            },
+            include: {
+                user: {
+                    select: {
+                        name: true,
+                        image: true,
+                        location: true
+                    }
                 }
             }
-        }
-    });
+        });
+    } catch (error) {
+        console.error("Failed to fetch testimonials:", error);
+        // Fallback empty
+        reviews = [];
+    }
 
     if (reviews.length === 0) return null;
 

@@ -13,26 +13,37 @@ const CATEGORY_MAP = [
 
 export default async function Categories() {
     // Fetch counts in parallel
-    const counts = await Promise.all(
-        CATEGORY_MAP.map(async (cat) => {
-            const count = await prisma.trip.count({
-                where: {
-                    status: 'active',
-                    deletedAt: null,
-                    OR: [
-                        { title: { contains: cat.keyword } },
-                        { description: { contains: cat.keyword } },
-                        { tripType: { contains: cat.keyword } }
-                    ]
-                }
-            });
-            return {
-                name: cat.name,
-                icon: cat.icon,
-                count: `${count} Trip${count !== 1 ? 's' : ''}`
-            };
-        })
-    );
+    let counts = [];
+    try {
+        counts = await Promise.all(
+            CATEGORY_MAP.map(async (cat) => {
+                const count = await prisma.trip.count({
+                    where: {
+                        status: 'active',
+                        deletedAt: null,
+                        OR: [
+                            { title: { contains: cat.keyword } },
+                            { description: { contains: cat.keyword } },
+                            { tripType: { contains: cat.keyword } }
+                        ]
+                    }
+                });
+                return {
+                    name: cat.name,
+                    icon: cat.icon,
+                    count: `${count} Trip${count !== 1 ? 's' : ''}`
+                };
+            })
+        );
+    } catch (error) {
+        console.error("Failed to fetch Category counts:", error);
+        // Fallback static data
+        counts = CATEGORY_MAP.map(cat => ({
+            name: cat.name,
+            icon: cat.icon,
+            count: "0 Trips"
+        }));
+    }
 
     return (
         <section className="py-20 bg-white">
