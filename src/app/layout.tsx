@@ -6,8 +6,6 @@ import Footer from "@/components/layout/Footer";
 import NextAuthSessionProvider from "@/components/providers/SessionProvider";
 import AOSProvider from "@/components/providers/AOSProvider";
 
-import BottomNav from "@/components/layout/BottomNav";
-
 import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -32,9 +30,8 @@ export default function RootLayout({
         <NextAuthSessionProvider>
           <AOSProvider>
             <Navbar />
-            <main className="min-h-screen pb-16 md:pb-0">{children}</main>
+            <main className="min-h-screen md:pb-0">{children}</main>
             <Footer />
-            <BottomNav />
             <Toaster position="top-center" />
           </AOSProvider>
         </NextAuthSessionProvider>
