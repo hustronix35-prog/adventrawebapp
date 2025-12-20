@@ -14,6 +14,8 @@ import TrustBadge from "@/components/ui/TrustBadge";
 
 interface BookingWizardProps {
     trip: Trip;
+    initialDate?: string | null;
+    initialGuests?: number | null;
 }
 
 export interface BookingState {
@@ -23,12 +25,20 @@ export interface BookingState {
     step: number;
 }
 
-export default function BookingWizard({ trip }: BookingWizardProps) {
+export default function BookingWizard({ trip, initialDate, initialGuests }: BookingWizardProps) {
     const { data: session } = useSession();
+
+    // Initialize guests (default to 2)
+    const validGuests = initialGuests && initialGuests > 0 ? Number(initialGuests) : 2;
+
+    // Initialize date
+    const parsedDate = initialDate ? new Date(initialDate) : null;
+    const isValidDate = parsedDate && !isNaN(parsedDate.getTime()) && parsedDate >= new Date();
+
     const [bookingState, setBookingState] = useState<BookingState>({
-        date: null,
-        guests: 2,
-        totalPrice: trip.price * 2, // Initial calculation
+        date: isValidDate ? parsedDate : null,
+        guests: validGuests,
+        totalPrice: trip.price * validGuests,
         step: 1
     });
 

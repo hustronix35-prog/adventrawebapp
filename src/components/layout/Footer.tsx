@@ -48,15 +48,16 @@ export default function Footer() {
                     <ul className="space-y-4 text-sm">
                         <li className="flex items-start gap-3">
                             <MapPin className="w-5 h-5 text-primary shrink-0" />
-                            <span>123 Adventure Ave, Suite 400<br />San Francisco, CA 94107</span>
-                        </li>
-                        <li className="flex items-center gap-3">
-                            <Phone className="w-5 h-5 text-primary shrink-0" />
-                            <span>+1 (555) 123-4567</span>
+                            <span>
+                                Adventra Technologies Pvt Ltd<br />
+                                Flat no. 102, Pride Regalia Apts,<br />
+                                Hulimavu, Bannerghatta Road,<br />
+                                Bangalore - 560076
+                            </span>
                         </li>
                         <li className="flex items-center gap-3">
                             <Mail className="w-5 h-5 text-primary shrink-0" />
-                            <span>hello@adventra.com</span>
+                            <span>help@adventra.tech</span>
                         </li>
                     </ul>
                 </div>

@@ -38,19 +38,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold mb-1">Email</h3>
-                                    <p className="text-gray-600">hello@adventra.com</p>
-                                    <p className="text-gray-600">support@adventra.com</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-4">
-                                <div className="bg-primary/10 p-3 rounded-full">
-                                    <Phone className="w-6 h-6 text-primary" />
-                                </div>
-                                <div>
-                                    <h3 className="font-bold mb-1">Phone</h3>
-                                    <p className="text-gray-600">+1 (555) 123-4567</p>
-                                    <p className="text-sm text-gray-500">Mon-Fri, 9am-6pm EST</p>
+                                    <p className="text-gray-600">help@adventra.tech</p>
                                 </div>
                             </div>
 
@@ -61,9 +49,10 @@ export default function ContactPage() {
                                 <div>
                                     <h3 className="font-bold mb-1">Office</h3>
                                     <p className="text-gray-600">
-                                        123 Adventure Way<br />
-                                        Suite 400<br />
-                                        San Francisco, CA 94107
+                                        Adventra Technologies Private Limited<br />
+                                        Flat no. 102, Pride Regalia Apartments,<br />
+                                        Hulimavu, Bannerghatta Road,<br />
+                                        Bangalore - 560076
                                     </p>
                                 </div>
                             </div>

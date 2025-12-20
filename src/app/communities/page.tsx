@@ -7,16 +7,12 @@ import { redirect } from "next/navigation";
 export const dynamic = 'force-dynamic'
 
 export default async function CommunitiesPage() {
+    // Only fetch session for UI state (e.g. showing "My Dashboard" vs "Sign In"), don't redirect
     let session;
     try {
         session = await getServerSession(authOptions);
     } catch (error) {
-        console.error("Session error:", error);
-        redirect("/api/auth/signout?callbackUrl=/communities");
-    }
-
-    if (!session) {
-        redirect("/login?callbackUrl=/communities");
+        console.error("Session check failed (non-blocking):", error);
     }
 
     const communities = await getCommunities()

@@ -29,6 +29,20 @@ export default function PrivacyPage() {
                         We implement appropriate technical and organizational measures to protect your personal data against
                         unauthorized access, alteration, disclosure, or destruction.
                     </p>
+
+                    <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">9. Contact Us</h3>
+                    <p>
+                        If you have any questions or concerns about this Privacy Policy, or wish to exercise your data rights, please contact us at:
+                    </p>
+                    <p className="font-semibold text-gray-900 mt-4">
+                        Adventra Technologies Private Limited
+                    </p>
+                    <p>
+                        <strong>Email:</strong> help@adventra.tech
+                    </p>
+                    <p>
+                        <strong>Address:</strong> Adventra Technologies Private Limited, Flat no. 102, Pride Regalia Apartments, Hulimavu, Bannerghatta Road, Bangalore - 560076
+                    </p>
                 </div>
             </div>
         </div>
