@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Star, Clock, MapPin } from "lucide-react";
 import Card from "../ui/Card";
 import Link from "next/link";
@@ -25,14 +28,17 @@ export default function TripCard({
     price,
     difficulty,
 }: TripCardProps) {
+    const [imgSrc, setImgSrc] = useState(image);
+
     return (
         <Link href={`/trips/${id}`}>
             <Card variant="interactive" className="h-full flex flex-col group">
                 {/* Image Container */}
                 <div className="relative aspect-[4/3] overflow-hidden">
                     <img
-                        src={image}
+                        src={imgSrc}
                         alt={title}
+                        onError={() => setImgSrc('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2021&q=80')}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-gray-800 flex items-center shadow-sm">
