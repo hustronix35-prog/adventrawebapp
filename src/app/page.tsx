@@ -6,7 +6,8 @@ import Categories from "@/components/home/Categories";
 import PlanTripSection from "@/components/home/PlanTripSection";
 import Testimonials from "@/components/home/Testimonials";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default function Home() {
   return (
