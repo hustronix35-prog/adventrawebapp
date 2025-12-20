@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { notFound, redirect } from "next/navigation";
-import BookingForm from "@/components/booking/BookingForm";
+import BookingWizard from "@/components/booking/flow/BookingWizard";
 
 export default async function BookingPage(props: { searchParams: Promise<{ tripId?: string }> }) {
     const searchParams = await props.searchParams;
@@ -21,7 +21,7 @@ export default async function BookingPage(props: { searchParams: Promise<{ tripI
     return (
         <div className="bg-gray-50 min-h-screen py-12 pt-24">
             <div className="container mx-auto px-4">
-                <BookingForm trip={trip} />
+                <BookingWizard trip={trip} />
             </div>
         </div>
     );

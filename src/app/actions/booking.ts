@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
+import { bookingSchema } from "@/lib/schemas";
 
 export async function createBooking(formData: FormData) {
     const session = await getServerSession(authOptions);
@@ -16,11 +17,17 @@ export async function createBooking(formData: FormData) {
     const guests = parseInt(formData.get("guests") as string);
     const dateInput = formData.get("date") as string;
 
-    if (!tripId || !guests || !dateInput) {
-        return { error: "Missing required booking details" };
+    const validation = bookingSchema.safeParse({
+        tripId,
+        guests,
+        date: dateInput
+    });
+
+    if (!validation.success) {
+        return { error: validation.error.issues[0].message };
     }
 
-    const date = new Date(dateInput);
+    const { date } = validation.data;
 
     try {
         // Fetch trip to get real price
@@ -32,7 +39,7 @@ export async function createBooking(formData: FormData) {
             return { error: "Trip not found" };
         }
 
-        const totalPrice = (trip.price * guests) + 150; // Base * guests + fees
+        const totalAmount = (trip.price * guests) + 150; // Base * guests + fees
 
         await prisma.booking.create({
             data: {
@@ -40,8 +47,8 @@ export async function createBooking(formData: FormData) {
                 tripId,
                 guests,
                 date,
-                totalPrice,
-                status: "confirmed",
+                totalAmount,
+                status: "confirmed", // Auto-confirm for now as we mock payment
             },
         });
 
