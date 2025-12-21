@@ -9,9 +9,9 @@ export default function Footer() {
             <div className="container mx-auto px-4 grid md:grid-cols-4 gap-8">
                 {/* Brand */}
                 <div className="space-y-4">
-                    <h3 className="text-2xl font-bold text-white tracking-tight">Adventra</h3>
+                    <h3 className="text-2xl font-bold text-white tracking-tight">Horizon Treks</h3>
                     <p className="text-sm leading-relaxed text-gray-400">
-                        Curating the world's best adventures for the modern explorer. Experience the extraordinary.
+                        Discover the unseen. Horizon Treks brings you closer to nature with curated expeditions and unparalleled adventure.
                     </p>
                     <div className="flex gap-4 pt-2">
                         <Link href="#" className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></Link>

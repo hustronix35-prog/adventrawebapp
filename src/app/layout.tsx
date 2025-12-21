@@ -12,11 +12,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  title: "Adventra | Discover Your Next Adventure",
+  title: "Horizon Treks | Discover Your Next Adventure",
   description: "Premium adventure travel booking platform for curated trekking and outdoor experiences.",
   icons: {
-    icon: "/brand-favicon.png",
-    apple: "/brand-favicon.png",
+    icon: "/horizon-logo.png",
+    apple: "/horizon-logo.png",
   },
 };
 

@@ -38,11 +38,14 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2">
                     <img
-                        src="/logo-new.png"
-                        alt="Adventra"
-                        className={`h-12 w-auto object-contain transition-all duration-300 ${isSolid ? "brightness-0" : ""}`}
+                        src="/horizon-logo.png"
+                        alt="Horizon Treks"
+                        className={`h-12 w-auto object-contain transition-all duration-300 ${isSolid ? "" : ""}`}
                         suppressHydrationWarning
                     />
+                    <span className={`text-xl font-bold transition-all duration-300 ${isSolid ? "text-slate-800" : "text-white"}`}>
+                        Horizon Treks
+                    </span>
                 </Link>
 
                 {/* Desktop Nav */}
