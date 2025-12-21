@@ -38,7 +38,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold mb-1">Email</h3>
-                                    <p className="text-gray-600">help@adventra.tech</p>
+                                    <p className="text-gray-600">explore@horizontreks.com</p>
                                 </div>
                             </div>
 
@@ -49,11 +49,21 @@ export default function ContactPage() {
                                 <div>
                                     <h3 className="font-bold mb-1">Office</h3>
                                     <p className="text-gray-600">
-                                        Adventra Technologies Private Limited<br />
-                                        Flat no. 102, Pride Regalia Apartments,<br />
-                                        Hulimavu, Bannerghatta Road,<br />
-                                        Bangalore - 560076
+                                        Horizon Treks<br />
+                                        42 Summit Avenue,<br />
+                                        Boulder, CO 80302,<br />
+                                        USA
                                     </p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-start gap-4">
+                                <div className="bg-primary/10 p-3 rounded-full">
+                                    <Phone className="w-6 h-6 text-primary" />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold mb-1">Phone</h3>
+                                    <p className="text-gray-600">+1 (303) 555-0199</p>
                                 </div>
                             </div>
                         </div>

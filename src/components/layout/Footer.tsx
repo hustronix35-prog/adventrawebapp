@@ -49,21 +49,25 @@ export default function Footer() {
                         <li className="flex items-start gap-3">
                             <MapPin className="w-5 h-5 text-primary shrink-0" />
                             <span>
-                                Adventra Technologies Pvt Ltd<br />
-                                Flat no. 102, Pride Regalia Apts,<br />
-                                Hulimavu, Bannerghatta Road,<br />
-                                Bangalore - 560076
+                                Horizon Treks<br />
+                                42 Summit Avenue,<br />
+                                Boulder, CO 80302,<br />
+                                USA
                             </span>
                         </li>
                         <li className="flex items-center gap-3">
                             <Mail className="w-5 h-5 text-primary shrink-0" />
-                            <span>help@adventra.tech</span>
+                            <span>explore@horizontreks.com</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                            <Phone className="w-5 h-5 text-primary shrink-0" />
+                            <span>+1 (303) 555-0199</span>
                         </li>
                     </ul>
                 </div>
             </div>
             <div className="container mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
-                © {new Date().getFullYear()} Adventra Inc. All rights reserved.
+                © {new Date().getFullYear()} Horizon Treks. All rights reserved.
             </div>
         </footer>
     );
