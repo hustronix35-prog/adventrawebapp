@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Users, Loader2, MessageCircle } from "lucide-react";
-import { Community } from "@/types"; // We might need to define this or import it if shared
+
 
 interface CommunityCardProps {
     community: {
@@ -58,8 +58,8 @@ export default function CommunityCard({ community, onJoin, onLeave, isLoading }:
                         onClick={() => (community.isMember ? onLeave(community.id) : onJoin(community.id))}
                         disabled={isLoading}
                         className={`py-2.5 rounded-xl font-medium transition-colors flex items-center justify-center gap-2 ${community.isMember
-                                ? "bg-gray-100 text-gray-700 hover:bg-gray-200 px-4"
-                                : "w-full bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/30"
+                            ? "bg-gray-100 text-gray-700 hover:bg-gray-200 px-4"
+                            : "w-full bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/30"
                             }`}
                     >
                         {isLoading ? (
