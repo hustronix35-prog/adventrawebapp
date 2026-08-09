@@ -1,0 +1,175 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String?
+  email         String         @unique
+  password      String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  image         String?
+  phone         String?
+  location      String?
+  bookings      Booking[]
+  createdTrips  Trip[]         @relation("CreatedTrips")
+  circleMembers CircleMember[]
+  ownedCircles  Circle[]       @relation("OwnedCircles")
+  messages      Message[]      @relation("SentMessages")
+  receivedMessages Message[]   @relation("ReceivedMessages")
+  reviews          Review[]
+}
+
+model Trip {
+  id           String    @id @default(cuid())
+  title        String
+  description  String
+  image        String?
+  gallery      String? // Stored as JSON string
+  location     String
+  duration     String?
+  durationDays Int       @default(1)
+  rating       Float     @default(0)
+  reviewCount  Int       @default(0)
+  price        Int       @default(0)
+  difficulty   String    @default("Moderate")
+  highlights   String? // Stored as JSON string or comma-separated
+  itinerary    String? // Stored as JSON string
+  inclusions   String? // Stored as JSON string
+  exclusions   String? // Stored as JSON string
+  bestTime     String?
+  tripType     String?
+  summitHeight String?
+  region       String?
+  placesOfInterest String? // Stored as JSON string
+  routeImage   String?
+  route        String? // Stored as JSON string
+  requirements String? // Stored as JSON string or text
+
+  // New fields for comprehensive trip creation
+  startDate          DateTime?
+  endDate            DateTime?
+  isPrivate          Boolean   @default(false)
+  isTest             Boolean   @default(false)
+  activities         String?   // Stored as JSON string
+  capacity           Int?
+  startingLocation   String?
+  returnLocation     String?
+  accommodation      String?
+  platformFee        Float?
+  discountAmount     Float?
+  tourGuideDetails   String?
+  tourGuidePhoto     String?
+  cancellationPolicy String?
+  termsAndConditions String?
+  views              Int       @default(0)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  status       String    @default("draft") // active, draft
+  deletedAt    DateTime?
+  bookings     Booking[]
+  creatorId    String?
+  creator      User?     @relation("CreatedTrips", fields: [creatorId], references: [id])
+  circleId     String?
+  circle       Circle?   @relation(fields: [circleId], references: [id])
+  messages     Message[]
+  reviews      Review[]
+}
+
+model Booking {
+  id         String   @id @default(cuid())
+  userId     String
+  tripId     String
+  date       DateTime
+  guests     Int
+  totalPrice Int
+  status     String   @default("confirmed") // pending, confirmed, cancelled
+  paymentStatus String @default("pending") // paid, unpaid, refunded
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+  trip Trip @relation(fields: [tripId], references: [id])
+}
+
+model Circle {
+  id          String         @id @default(cuid())
+  name        String
+  description String
+  image       String?
+  ownerId     String
+  owner       User           @relation("OwnedCircles", fields: [ownerId], references: [id])
+  members     CircleMember[]
+  trips       Trip[]
+  messages    Message[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+model CircleMember {
+  id        String   @id @default(cuid())
+  userId    String
+  circleId  String
+  joinedAt  DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  circle    Circle   @relation(fields: [circleId], references: [id])
+
+  @@unique([userId, circleId])
+}
+
+model Organizer {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  image     String?
+  bio       String?
+  phone     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  messages  Message[]
+}
+
+model Message {
+  id          String    @id @default(cuid())
+  content     String
+  createdAt   DateTime  @default(now())
+  isRead      Boolean   @default(false)
+  sender      String    // "ORGANIZER" or "USER"
+
+  // Context
+  tripId      String?
+  trip        Trip?     @relation(fields: [tripId], references: [id])
+  circleId    String?
+  circle      Circle?   @relation(fields: [circleId], references: [id])
+
+  organizerId String?
+  organizer   Organizer? @relation(fields: [organizerId], references: [id])
+  userId      String?
+  user        User?     @relation("SentMessages", fields: [userId], references: [id])
+  
+  recipientId String?
+  recipient   User?     @relation("ReceivedMessages", fields: [recipientId], references: [id])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Int
+  content   String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  tripId    String?
+  trip      Trip?    @relation(fields: [tripId], references: [id])
+  isFeatured Boolean @default(false)
+  createdAt DateTime @default(now())
+}
